@@ -16,7 +16,7 @@ class scan:
             scan = Popen(['ls','-al','/home'], stdin = PIPE, stdout = PIPE, stderr = PIPE, text = True)
             scanout, scanerr = scan.communicate()
             if scan.returncode == 0:
-                return "\n" + "_"*10 + "/home Scan" + "_"*10 + f"\n\nCommand ran.\n\nOutput:\n\n{scanout}"
+                return "\n" + "_"*10 + "/home Scan" + "_"*10 + f"\n\nScan completed.\n\nOutput:\n\n{scanout}"
             else:
                 return "\n" + "_"*10 + "/home Scan" + "_"*10 + f"\n\nError:\n\n{scanerr}"
         except Exception as e:

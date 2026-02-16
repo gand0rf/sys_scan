@@ -19,9 +19,9 @@ class test:
             if test.returncode == 0:
                 if '/home' in testout:
                     scan_res = home_scan.scan.scan_home()
-                    return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\nScan completed\n\nOutput:\n\n{testout + scan_res}"
+                    return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\nCommand ran.\n\nOutput:\n\n{testout + scan_res}"
                 else:
-                    return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\nScan completed\n\nOutput:\n\n{testout}"
+                    return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\nCommand ran.\n\nOutput:\n\n{testout}"
             else:
                 return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\nError when running pwd:\n\n{testerr}"
         except Exception as e:
