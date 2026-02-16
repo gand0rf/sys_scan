@@ -24,7 +24,7 @@ Do not be a script kiddie!
 
 Yes, use this tool if you want to or you are still having a hard time at first.
 
-But do not use withou learning.
+But do not use without learning.
 
 Learn what the code is doing.
 What it is teting for.
