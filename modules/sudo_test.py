@@ -16,7 +16,7 @@ class test:
             test = Popen(['sudo','-S','-l'], stdin = PIPE, stdout = PIPE, stderr = PIPE, text = True)
             testout, testerr = test.communicate(input=(acc_pass + '\n'))
             if test.returncode == 0:
-                return "\n" + "_"*10 + "Sudo Test" + "_"*10 + f"\n\nCommand ran.\n\nOutput:\n\n{testout}"
+                return "\n" + "_"*10 + "Sudo Test" + "_"*10 + f"\n\n{testout}"
             else:
                 return f"\n" + "_"*10 + "Sudo Test" + "_"*10 + f"\n\nError when running sudo:\n\n{testerr}"
         except Exception as e:
