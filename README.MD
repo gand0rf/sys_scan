@@ -8,15 +8,15 @@ This script aims to help with remote machine recon in a CTF once you have gained
     Get current user
     Test if able to get sudo info
     Test current pwd
-    If /home in pwd, scan for all folders
+    Scan /home folder
+    Recursive search through /home for .ssh folder and potential keys (scan)
 
 ### Future implamentation:
-    Recursive search through /home for .ssh folder and potential keys (scan)
     Search for SUID (test)
     Search for GUID (test)
     Scan for any open listening ports (scan)
     See if environment is in a docker container (test)
-    Add in help option that users can requets info on specific test adn scans (feature)
+    Add in help option that users can requets info on specific test and scans (feature)
 
 # IMPORTANT!!
 
