@@ -17,7 +17,7 @@ class test:
             test = Popen(['pwd'], stdin = PIPE, stdout = PIPE, stderr = PIPE, text = True)
             testout, testerr = test.communicate()
             if test.returncode == 0:
-                return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\nCommand ran.\n\nOutput:\n\n{testout}"
+                return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\n{testout}"
             else:
                 return f"\n" + "_"*10 + "PWD Test" + "_"*10 + f"\n\nError when running pwd:\n\n{testerr}"
         except Exception as e:
