@@ -11,7 +11,7 @@ class tests():
         results = sudo_test.test.l_test(acc_pass)
         results += pwd_test.test.test()
         results += home_scan.scan.scan_home()
-        results += home_search.main_entry()
+        results += home_search.search().main_entry()
         return results
 
 if __name__ == "__main__":
