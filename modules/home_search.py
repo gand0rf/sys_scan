@@ -8,6 +8,7 @@
 
 import os
 import stat
+import glob
 
 class search:
     def __init__(self):
@@ -58,10 +59,13 @@ class search:
         """
         Recursively search for user.txt and flag.txt files.
         """
-        target_files = ['user.txt', 'flag.txt']
+        target_files = ['user.txt', 'flag.txt', 'flag1.txt', 'flag2.txt']
         
+        #local_files = glob.glob('*/*')
+
         try:
             for root, dirs, files in os.walk(base_path):
+            #for root, dirs, files in local_files:
                 for filename in files:
                     if filename in target_files:
                         file_path = os.path.join(root, filename)

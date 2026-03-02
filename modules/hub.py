@@ -6,7 +6,7 @@ import modules.home_search as home_search
 class tests():
     def __init__(self):
         pass
-
+    
     def full_run(acc_pass):
         results = sudo_test.test.l_test(acc_pass)
         results += pwd_test.test.test()

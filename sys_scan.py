@@ -15,6 +15,7 @@ if __name__ == "__main__":
         hostname = socket.gethostname()
         with open(f'{hostname}-scan.txt', 'w') as f:
             f.writelines(results)
+            f.writelines('\n')
 
         # Let user know scan is completed and whre to find the FileExistsError
         print(f'\nScan comleted. Results are saved in {hostname}-scan.txt file\n')
