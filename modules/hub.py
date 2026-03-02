@@ -2,6 +2,7 @@ import modules.sudo_test as sudo_test
 import modules.pwd_test as pwd_test
 import modules.home_scan as home_scan
 import modules.home_search as home_search
+import modules.suid_scan as suid_scan
 
 class tests():
     def __init__(self):
@@ -12,6 +13,7 @@ class tests():
         results += pwd_test.test.test()
         results += home_scan.scan.scan_home()
         results += home_search.search().main_entry()
+        results += suid_scan.scan().scan_suid()
         return results
 
 if __name__ == "__main__":
