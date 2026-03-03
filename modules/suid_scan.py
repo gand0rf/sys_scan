@@ -16,6 +16,7 @@ class scan:
     def filter_scan(slef, scan_results):
         scan_list = scan_results.split('\n')
         clean_list= []
+        # Added to list after recording. Checked a couple of my servers to look for more to exclude.
         filter_list = [
             '/usr/bin/mount',
             '/usr/bin/sudo.ws',
@@ -24,7 +25,11 @@ class scan:
             '/usr/bin/umount',
             '/usr/bin/pkexec',
             '/usr/bin/passwd',
-            '/usr/bin/gpasswd'
+            '/usr/bin/gpasswd',
+            '/usr/bin/fusermount3',
+            '/usr/bin/chfn',
+            '/usr/bin/chsh',
+            '/usr/bin/at'
         ]
         
         for file in scan_list:
@@ -35,13 +40,15 @@ class scan:
 
     def scan_suid(self):
         try:
-            scan = Popen(['find', '/', '-perm', '-4000'], stdin = PIPE, stdout = PIPE, stderr = PIPE, text = True, shell = False)
+            # added in prune option to exclude the /snap directory and the /media directory. They may still print out in the finally output, but the scan should pass
+            # over them making it alittle faster.
+            scan = Popen(['find', '/', '(', '-path', '/snap', '-o', '-path', '/media', ')', '-prune', '-o', '-perm', '-4000', '-print'], stdin = PIPE, stdout = PIPE, stderr = PIPE, text = True, shell = False)
             scanout, scanerr = scan.communicate()
             if 'find:' in str(scanerr) and 'Permission denied' in str(scanerr):
                 scanout = self.filter_scan(scanout)
-                return "\n" + "_"*10 + "/SUID Scan" + "_"*10 + f"\n\n{scanout}"
+                return "\n\n" + "_"*10 + "/SUID Scan" + "_"*10 + f"\n\n{scanout}"
             else:
-                return "\n" + "_"*10 + "/SUID Scan" + "_"*10 + f"\n\nError:\n\n{scanerr}"
+                return "\n\n" + "_"*10 + "/SUID Scan" + "_"*10 + f"\n\nError:\n\n{scanerr}"
         except Exception as e:
             return "\n" + "_"*10 + "Scan Results" + "_"*10 + f"\n\nThere was an problem running the scan:\n\n{e}"
 
