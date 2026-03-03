@@ -10,9 +10,9 @@ This script aims to help with remote machine recon in a CTF once you have gained
     Test current pwd
     Scan /home folder
     Recursive search through /home for .ssh folder and potential keys (scan)
+    Search for SUID
 
 ### Future implamentation:
-    Search for SUID (test)
     Search for GUID (test)
     Scan for any open listening ports (scan)
     See if environment is in a docker container (test)
